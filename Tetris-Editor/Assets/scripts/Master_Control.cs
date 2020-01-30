@@ -26,6 +26,8 @@ public class Master_Control : MonoBehaviour
     public bool escapception = false;
     bool ghost;
     public GameObject landParticle;
+    AudioSource[] soundFX;
+    public Skin[] skinArray;
 
     public Score finalscore;
     public GameObject fadeback2op;
@@ -61,6 +63,9 @@ public class Master_Control : MonoBehaviour
         UpdateAccel();
         StartCoroutine(musicfadein());
         countdown.SetActive(true);
+        soundFX = FindObjectOfType<AudioManage>().audioSources;
+        FindObjectOfType<AudioManage>().ChangeVolume(PlayerPrefs.GetInt("SoundVolume", 1) / 100f);
+
     }
 
     private void Update()
@@ -80,7 +85,7 @@ public class Master_Control : MonoBehaviour
         float vol = PlayerPrefs.GetInt("Volume", 75);
         for (int x = 0; x <= 60; x++)
         {
-            bgm.volume = (vol * x) / 12000;
+            bgm.volume = (vol * x) / 24000f;
             yield return new WaitForSeconds(0.04f);
         }
     }
@@ -90,7 +95,7 @@ public class Master_Control : MonoBehaviour
         float vol = PlayerPrefs.GetInt("Volume", 75);
         for (int x = 30; x >= 0; x--)
         {
-            bgm.volume = (vol * x) / 6000;
+            bgm.volume = (vol * x) / 12000f;
             yield return new WaitForSeconds(0.01f);
         }
     }
@@ -695,6 +700,8 @@ public class Master_Control : MonoBehaviour
         }
         if (!ghost)
         {
+            soundFX[2].Play();
+            soundFX[3].Play();
             FindObjectOfType<Score>().AddScore("insta");
             Instantiate(landParticle, new Vector3(x + xOff, out_val - offset, 0), Quaternion.Euler(270, 0, 0));
         }
@@ -817,6 +824,7 @@ public class Master_Control : MonoBehaviour
     public bool Holdblock(string type)
     {
         if (!(taken)) {
+            soundFX[6].Play();
             if (ghost) { FindObjectOfType<Ghost>().DestroyGhost(); }
             string returnpiece = widget.GetComponent<Side_Widget>().Hold(type);
             if (returnpiece == "None") { LoadRandom(); }
@@ -831,7 +839,11 @@ public class Master_Control : MonoBehaviour
     {
         taken = false;
         yield return new WaitForSeconds(time_wait);
-        if (!paused) { LoadRandom(); }
+        if (!paused) {
+        if (FindObjectOfType<Spin_Control_Opiece>() != null | FindObjectOfType<Spin_Control_Lpiece>() != null | FindObjectOfType<Spin_Control_Jpiece>() != null | FindObjectOfType<Spin_Control_Spiece>() != null | FindObjectOfType<Spin_Control_Zpiece>() != null | FindObjectOfType<Spin_Control_Tpiece>() != null | FindObjectOfType<Spin_Control_Ipiece>() != null)
+            { Debug.Log("already have"); }
+        else { LoadRandom(); }
+        }
     }
 
     void LoadRandom()
@@ -850,7 +862,8 @@ public class Master_Control : MonoBehaviour
                 if (ghost)
                 {
                     float initghosty = InstaDrop(3.2f, 0, "O", 0, true);
-                    Instantiate(oghost, new Vector3(0, initghosty, 0), Quaternion.identity, parent.transform);
+                    GameObject ghost = Instantiate(oghost, new Vector3(0, initghosty, 0), Quaternion.identity, parent.transform);
+                    ghost.GetComponent<Ghost>().TellCoord(initghosty, 0);
                 }
             }
         }
@@ -862,7 +875,8 @@ public class Master_Control : MonoBehaviour
                 if (ghost)
                 {
                     float initghosty = InstaDrop(3f, 0.2f, "T", 0, true);
-                    Instantiate(tghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    GameObject ghost = Instantiate(tghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    ghost.GetComponent<Ghost>().TellCoord(initghosty, 0.2f);
                 }
             }
         }
@@ -874,7 +888,8 @@ public class Master_Control : MonoBehaviour
                 if (ghost)
                 {
                     float initghosty = InstaDrop(3.2f, 0, "I", 0, true);
-                    Instantiate(ighost, new Vector3(0, initghosty, 0), Quaternion.identity, parent.transform);
+                    GameObject ghost = Instantiate(ighost, new Vector3(0, initghosty, 0), Quaternion.identity, parent.transform);
+                    ghost.GetComponent<Ghost>().TellCoord(initghosty, 0);
                 }
             }
         }
@@ -886,7 +901,8 @@ public class Master_Control : MonoBehaviour
                 if (ghost)
                 {
                     float initghosty = InstaDrop(3f, 0.2f, "L", 0, true);
-                    Instantiate(lghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    GameObject ghost = Instantiate(lghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    ghost.GetComponent<Ghost>().TellCoord(initghosty, 0.2f);
                 }
             }
         }
@@ -898,7 +914,8 @@ public class Master_Control : MonoBehaviour
                 if (ghost)
                 {
                     float initghosty = InstaDrop(3f, 0.2f, "J", 0, true);
-                    Instantiate(jghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    GameObject ghost = Instantiate(jghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    ghost.GetComponent<Ghost>().TellCoord(initghosty, 0.2f);
                 }
             }
         }
@@ -910,7 +927,8 @@ public class Master_Control : MonoBehaviour
                 if (ghost)
                 {
                     float initghosty = InstaDrop(3f, 0.2f, "S", 0, true);
-                    Instantiate(sghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    GameObject ghost = Instantiate(sghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    ghost.GetComponent<Ghost>().TellCoord(initghosty, 0.2f);
                 }
             }
         }
@@ -922,7 +940,8 @@ public class Master_Control : MonoBehaviour
                 if (ghost)
                 {
                     float initghosty = InstaDrop(3f, 0.2f, "Z", 0, true);
-                    Instantiate(zghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    GameObject ghost = Instantiate(zghost, new Vector3(0.2f, initghosty, 0), Quaternion.identity, parent.transform);
+                    ghost.GetComponent<Ghost>().TellCoord(initghosty, 0.2f);
                 }
             }
         }
@@ -982,6 +1001,79 @@ public class Master_Control : MonoBehaviour
             }
             else
             {
+                int ghostAfter = PlayerPrefs.GetInt("Ghost", 1);
+                if (ghost & ghostAfter == 0) { ghost = false; FindObjectOfType<Ghost>().DestroyGhost(); }
+                if (!ghost & ghostAfter == 1)
+                { 
+                    ghost = true;
+                    if (FindObjectOfType<Spin_Control_Opiece>() != null)
+                    {
+                        Transform block = FindObjectOfType<Spin_Control_Opiece>().transform;
+                        float initghosty = InstaDrop(block.position.y, block.position.x, "O", (int)block.rotation.z, true);
+                        GameObject ghost = Instantiate(oghost, new Vector3(block.position.x, initghosty, 0), Quaternion.Euler(0, 0, block.rotation.z), parent.transform);
+                        ghost.GetComponent<Ghost>().TellCoord(initghosty, block.position.x, (int)block.rotation.z);
+                    }
+                    else
+                    {
+                        if (FindObjectOfType<Spin_Control_Tpiece>() != null)
+                        {
+                            Transform block = FindObjectOfType<Spin_Control_Tpiece>().transform;
+                            float initghosty = InstaDrop(block.position.y, block.position.x, "T", (int)block.rotation.z, true);
+                            GameObject ghost = Instantiate(tghost, new Vector3(block.position.x, initghosty, 0), Quaternion.Euler(0, 0, block.rotation.z), parent.transform);
+                            ghost.GetComponent<Ghost>().TellCoord(initghosty, block.position.x, (int)block.rotation.z);
+                        }
+                        else
+                        {
+                            if (FindObjectOfType<Spin_Control_Ipiece>() != null)
+                            {
+                                Transform block = FindObjectOfType<Spin_Control_Ipiece>().transform;
+                                float initghosty = InstaDrop(block.position.y, block.position.x, "I", (int)block.rotation.z, true);
+                                GameObject ghost = Instantiate(ighost, new Vector3(block.position.x, initghosty, 0), Quaternion.Euler(0, 0, block.rotation.z), parent.transform);
+                                ghost.GetComponent<Ghost>().TellCoord(initghosty, block.position.x, (int)block.rotation.z);
+                            }
+                            else
+                            {
+                                if (FindObjectOfType<Spin_Control_Lpiece>() != null)
+                                {
+                                    Transform block = FindObjectOfType<Spin_Control_Lpiece>().transform;
+                                    float initghosty = InstaDrop(block.position.y, block.position.x, "L", (int)block.rotation.z, true);
+                                    GameObject ghost = Instantiate(lghost, new Vector3(block.position.x, initghosty, 0), Quaternion.Euler(0, 0, block.rotation.z), parent.transform);
+                                    ghost.GetComponent<Ghost>().TellCoord(initghosty, block.position.x, (int)block.rotation.z);
+                                }
+                                else
+                                {
+                                    if (FindObjectOfType<Spin_Control_Jpiece>() != null)
+                                    {
+                                        Transform block = FindObjectOfType<Spin_Control_Jpiece>().transform;
+                                        float initghosty = InstaDrop(block.position.y, block.position.x, "J", (int)block.rotation.z, true);
+                                        GameObject ghost = Instantiate(jghost, new Vector3(block.position.x, initghosty, 0), Quaternion.Euler(0, 0, block.rotation.z), parent.transform);
+                                        ghost.GetComponent<Ghost>().TellCoord(initghosty, block.position.x, (int)block.rotation.z);
+                                    }
+                                    else
+                                    {
+                                        if (FindObjectOfType<Spin_Control_Spiece>() != null)
+                                        {
+                                            Transform block = FindObjectOfType<Spin_Control_Spiece>().transform;
+                                            float initghosty = InstaDrop(block.position.y, block.position.x, "S", (int)block.rotation.z, true);
+                                            GameObject ghost = Instantiate(sghost, new Vector3(block.position.x, initghosty, 0), Quaternion.Euler(0, 0, block.rotation.z), parent.transform);
+                                            ghost.GetComponent<Ghost>().TellCoord(initghosty, block.position.x, (int)block.rotation.z);
+                                        }
+                                        else
+                                        {
+                                            if (FindObjectOfType<Spin_Control_Zpiece>() != null)
+                                            {
+                                                Transform block = FindObjectOfType<Spin_Control_Zpiece>().transform;
+                                                float initghosty = InstaDrop(block.position.y, block.position.x, "Z", (int)block.rotation.z, true);
+                                                GameObject ghost = Instantiate(zghost, new Vector3(block.position.x, initghosty, 0), Quaternion.Euler(0, 0, block.rotation.z), parent.transform);
+                                                ghost.GetComponent<Ghost>().TellCoord(initghosty, block.position.x, (int)block.rotation.z);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 fade2game.SetActive(true);
                 try { FindObjectOfType<Spin_Control_Opiece>().UpdateSettings(); } catch { }
                 try { FindObjectOfType<Spin_Control_Tpiece>().UpdateSettings(); } catch { }

@@ -27,8 +27,10 @@ public class Hotkey : MonoBehaviour
     public Text itext;
     public GameObject instabutton;
 
-    public Slider vol;
+    public Slider bgvol;
     public AudioSource bgmusic;
+
+    public Slider svol;
 
     public Toggle ghost;
     private void Start()
@@ -40,7 +42,8 @@ public class Hotkey : MonoBehaviour
         atext.text = PlayerPrefs.GetString("Anticlockwise", "Z");
         htext.text = PlayerPrefs.GetString("Hold", "C");
         itext.text = PlayerPrefs.GetString("Insta", "Space");
-        vol.value = PlayerPrefs.GetInt("Volume", 75);
+        bgvol.value = PlayerPrefs.GetInt("Volume", 75);
+        svol.value = PlayerPrefs.GetInt("SoundVolume", 100);
         if (PlayerPrefs.GetInt("Ghost", 1) == 1) { ghost.isOn = true; }
         else { ghost.isOn = false; }
     }
@@ -95,10 +98,18 @@ public class Hotkey : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
         }
     }
+    public void ChangeSoundVolume()
+    {
+        PlayerPrefs.SetInt("SoundVolume", (int)svol.value);
+        if (FindObjectOfType<AudioManage>() != null)
+        {
+            FindObjectOfType<AudioManage>().ChangeVolume(svol.value / 100f);
+        }
+    }
     public void ChangeVolume()
     {
-        PlayerPrefs.SetInt("Volume", (int)vol.value);
-        bgmusic.volume = vol.value / 200;
+        PlayerPrefs.SetInt("Volume", (int)bgvol.value);
+        bgmusic.volume = bgvol.value / 400f;
     }
 
     public void ToggleGhost()
@@ -117,7 +128,7 @@ public class Hotkey : MonoBehaviour
         float volume = PlayerPrefs.GetInt("Volume", 75);
         for (int x = 30; x >= 0; x--)
         {
-            bgmusic.volume = (x * volume) / 6000;
+            bgmusic.volume = (x * volume) / 12000f;
             yield return new WaitForSeconds(0.01f);
         }
     }
@@ -132,6 +143,7 @@ public class Hotkey : MonoBehaviour
         PlayerPrefs.SetString("Hold", "C");
         PlayerPrefs.SetString("Insta", "Space");
         PlayerPrefs.SetInt("Volume", 75);
+        PlayerPrefs.SetInt("SoundVolume", 100);
         Start();
     }
 }

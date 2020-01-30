@@ -4,38 +4,41 @@ using UnityEngine.Tilemaps;
 public class Grid_Fill : MonoBehaviour
 {
     #region tile
-    public Tile Oblock_0; 
+    public Tile Oblock_0;
     public Tile Tblock_0; 
-    public Tile Iblock_0; 
-    public Tile Lblock_0; 
-    public Tile Jblock_0; 
-    public Tile Sblock_0; 
+    public Tile Iblock_0;
+    public Tile Lblock_0;
+    public Tile Jblock_0;
+    public Tile Sblock_0;
     public Tile Zblock_0;
-    public Tile Tblock_90;
-    public Tile Iblock_90;
-    public Tile Lblock_90;
-    public Tile Jblock_90;
-    public Tile Sblock_90;
-    public Tile Zblock_90;
-    public Tile Tblock_180;
-    public Tile Iblock_180;
-    public Tile Lblock_180;
-    public Tile Jblock_180;
-    public Tile Sblock_180;
-    public Tile Zblock_180;
-    public Tile Tblock_270;
-    public Tile Iblock_270;
-    public Tile Lblock_270;
-    public Tile Jblock_270;
-    public Tile Sblock_270;
-    public Tile Zblock_270;
-    public Tile Noblock;
+    Tile Tblock_90;
+    Tile Iblock_90;
+    Tile Lblock_90;
+    Tile Jblock_90;
+    Tile Sblock_90;
+    Tile Zblock_90;
+    Tile Tblock_180;
+    Tile Iblock_180;
+    Tile Lblock_180;
+    Tile Jblock_180;
+    Tile Sblock_180;
+    Tile Zblock_180;
+    Tile Tblock_270;
+    Tile Iblock_270;
+    Tile Lblock_270;
+    Tile Jblock_270;
+    Tile Sblock_270;
+    Tile Zblock_270;
+    Tile Noblock;
     #endregion
     public int[,] mat;
     public CameraShake cam;
+    Skin skinType;
+    AudioSource[] soundFX;
 
     void Start()
     {
+        soundFX = FindObjectOfType<AudioManage>().audioSources;
         mat = new int[20,10];
         for (int y = 0; y < 20; y++)
         {
@@ -44,6 +47,122 @@ public class Grid_Fill : MonoBehaviour
                 mat[y, x] = 0;
             }
         }
+        skinType = FindObjectOfType<Master_Control>().skinArray[PlayerPrefs.GetInt("SkinIndex", 0)];
+        if (!skinType.differentOrientation & skinType.differentColor)
+        {
+            Oblock_0 = skinType.oSingle;
+            Tblock_0 = skinType.tSingle0;
+            Tblock_90 = skinType.tSingle0;
+            Tblock_180 = skinType.tSingle0;
+            Tblock_270 = skinType.tSingle0;
+            Iblock_0 = skinType.iSingle0;
+            Iblock_90 = skinType.iSingle0;
+            Iblock_180 = skinType.iSingle0;
+            Iblock_270 = skinType.iSingle0;
+            Lblock_0 = skinType.lSingle0;
+            Lblock_90 = skinType.lSingle0;
+            Lblock_180 = skinType.lSingle0;
+            Lblock_270 = skinType.lSingle0;
+            Jblock_0 = skinType.jSingle0;
+            Jblock_90 = skinType.jSingle0;
+            Jblock_180 = skinType.jSingle0;
+            Jblock_270 = skinType.jSingle0;
+            Sblock_0 = skinType.sSingle0;
+            Sblock_90 = skinType.sSingle0;
+            Sblock_180 = skinType.sSingle0;
+            Sblock_270 = skinType.sSingle0;
+            Zblock_0 = skinType.zSingle0;
+            Zblock_90 = skinType.zSingle0;
+            Zblock_180 = skinType.zSingle0;
+            Zblock_270 = skinType.zSingle0;
+        }
+        if (!skinType.differentColor & skinType.differentOrientation)
+        {
+            Tblock_0 = skinType.tSingle0;
+            Tblock_90 = skinType.tSingle90;
+            Tblock_180 = skinType.tSingle180;
+            Tblock_270 = skinType.tSingle270;
+            Oblock_0 = Tblock_0;
+            Iblock_0 = Tblock_0;
+            Lblock_0 = Tblock_0;
+            Jblock_0 = Tblock_0;
+            Sblock_0 = Tblock_0;
+            Zblock_0 = Tblock_0;
+            Iblock_90 = Tblock_90;
+            Lblock_90 = Tblock_90;
+            Jblock_90 = Tblock_90;
+            Sblock_90 = Tblock_90;
+            Zblock_90 = Tblock_90;
+            Iblock_180 = Tblock_180;
+            Lblock_180 = Tblock_180;
+            Jblock_180 = Tblock_180;
+            Sblock_180 = Tblock_180;
+            Zblock_180 = Tblock_180;
+            Iblock_270 = Tblock_270;
+            Lblock_270 = Tblock_270;
+            Jblock_270 = Tblock_270;
+            Sblock_270 = Tblock_270;
+            Zblock_270 = Tblock_270;
+        }
+        if (!skinType.differentOrientation & !skinType.differentColor)
+        {
+            Oblock_0 = skinType.tSingle0;
+            Tblock_0 = skinType.tSingle0;
+            Tblock_90 = skinType.tSingle0;
+            Tblock_180 = skinType.tSingle0;
+            Tblock_270 = skinType.tSingle0;
+            Iblock_0 = skinType.tSingle0;
+            Iblock_90 = skinType.tSingle0;
+            Iblock_180 = skinType.tSingle0;
+            Iblock_270 = skinType.tSingle0;
+            Lblock_0 = skinType.tSingle0;
+            Lblock_90 = skinType.tSingle0;
+            Lblock_180 = skinType.tSingle0;
+            Lblock_270 = skinType.tSingle0;
+            Jblock_0 = skinType.tSingle0;
+            Jblock_90 = skinType.tSingle0;
+            Jblock_180 = skinType.tSingle0;
+            Jblock_270 = skinType.tSingle0;
+            Sblock_0 = skinType.tSingle0;
+            Sblock_90 = skinType.tSingle0;
+            Sblock_180 = skinType.tSingle0;
+            Sblock_270 = skinType.tSingle0;
+            Zblock_0 = skinType.tSingle0;
+            Zblock_90 = skinType.tSingle0;
+            Zblock_180 = skinType.tSingle0;
+            Zblock_270 = skinType.tSingle0;
+        }
+        if (skinType.differentColor & skinType.differentColor)
+        {
+            Oblock_0 = skinType.oSingle;
+            Tblock_0 = skinType.tSingle0;
+            Tblock_90 = skinType.tSingle90;
+            Tblock_180 = skinType.tSingle180;
+            Tblock_270 = skinType.tSingle270;
+            Iblock_0 = skinType.iSingle0;
+            Iblock_90 = skinType.iSingle90;
+            Iblock_180 = skinType.iSingle180;
+            Iblock_270 = skinType.iSingle270;
+            Lblock_0 = skinType.lSingle0;
+            Lblock_90 = skinType.lSingle90;
+            Lblock_180 = skinType.lSingle180;
+            Lblock_270 = skinType.lSingle270;
+            Jblock_0 = skinType.jSingle0;
+            Jblock_90 = skinType.jSingle90;
+            Jblock_180 = skinType.jSingle180;
+            Jblock_270 = skinType.jSingle270;
+            Sblock_0 = skinType.sSingle0;
+            Sblock_90 = skinType.sSingle90;
+            Sblock_180 = skinType.sSingle180;
+            Sblock_270 = skinType.sSingle270;
+            Zblock_0 = skinType.zSingle0;
+            Zblock_90 = skinType.zSingle90;
+            Zblock_180 = skinType.zSingle180;
+            Zblock_270 = skinType.zSingle270;
+        }
+        Noblock = skinType.NoBlock;
+
+
     }
 
     public void AddToMatrix(float y, float x, string type, int rotation)
@@ -175,7 +294,7 @@ public class Grid_Fill : MonoBehaviour
             }
         }
         for (int y = 19; y > 19 - linecleared; y--) { EmptyLine(y); }
-        if (linecleared != 0) { StartCoroutine(cam.Shake(0.5f, 0.25f)); }
+        if (linecleared != 0) { if (soundFX.Length < 2) { soundFX = FindObjectOfType<AudioManage>().audioSources; Debug.Log("for some reason it reset?"); } soundFX[0].Play(); soundFX[1].Play(); StartCoroutine(cam.Shake(0.5f, 0.25f)); }
     }
 
     void CopyLine(int to, int from)

@@ -3,15 +3,14 @@
 public class Ghost : MonoBehaviour
 {
     public Transform state;
+    public float x;
+    public float y;
+    public string type;
+    public int rot;
 
     private void Start()
     {
-        Spin_Control_Opiece fuckYou = FindObjectOfType<Spin_Control_Opiece>();
-        if (fuckYou != null)
-        {
-            UpdateState(FindObjectOfType<Master_Control>().InstaDrop(fuckYou.transform.position.y, fuckYou.transform.position.x, "O", 0, true), fuckYou.transform.position.x, 0);
-        }
-
+        UpdateState(y, x, rot);
     }
     public void UpdateState(float y, float x, int rotation)
     {
@@ -22,5 +21,12 @@ public class Ghost : MonoBehaviour
     public void DestroyGhost()
     {
         Destroy(gameObject);
+    }
+
+    public void TellCoord(float Y, float X, int Rot = 0)
+    {
+        x = X;
+        y = Y;
+        rot = Rot;
     }
 }

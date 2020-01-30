@@ -35,12 +35,14 @@ public class Spin_Control_Zpiece : MonoBehaviour
     KeyCode holdhotkey;
     public Tilemap spren;
     bool blinkable = true;
+    AudioSource[] soundFX;
 
     void Start()
     {
+        soundFX = FindObjectOfType<AudioManage>().audioSources;
         UpdateSettings();
         if (PlayerPrefs.GetInt("Ghost", 1) == 1) { ghost = true; }
-        else { ghost = false;}
+        else { ghost = false; }
     }
     #endregion
     void Update()
@@ -67,6 +69,7 @@ public class Spin_Control_Zpiece : MonoBehaviour
             // single move
             if (Input.GetKeyDown(righthotkey) & !(Input.GetKeyDown(lefthotkey)) & !(Bump_wall_R()))
             {
+                soundFX[4].Play();
                 moving_already = true;
                 state.position += new Vector3(0.4f, 0, 0);
                 if (ghost) { StateChange(); }
@@ -81,6 +84,7 @@ public class Spin_Control_Zpiece : MonoBehaviour
                     if (div(right_hold - inertia, 1 / move_per_sec) >= right_moved)
                     {
                         float step = div(right_hold - inertia, 1 / move_per_sec) - right_moved;
+                        if (step > 0.1f) { soundFX[4].Play(); }
                         state.position += new Vector3(step * 0.4f, 0, 0);
                         right_moved += step;
                         if (ghost) { StateChange(); }
@@ -104,6 +108,7 @@ public class Spin_Control_Zpiece : MonoBehaviour
             // single move
             if (Input.GetKeyDown(lefthotkey) & !(Input.GetKeyDown(righthotkey)) & !(Bump_wall_L()))
             {
+                soundFX[4].Play();
                 moving_already = true;
                 state.position -= new Vector3(0.4f, 0, 0);
                 if (ghost) { StateChange(); }
@@ -118,6 +123,7 @@ public class Spin_Control_Zpiece : MonoBehaviour
                     if (div(left_hold - inertia, 1 / move_per_sec) >= left_moved)
                     {
                         float step = div(left_hold - inertia, 1 / move_per_sec) - left_moved;
+                        if (step > 0.1f) { soundFX[4].Play(); }
                         state.position += new Vector3(step * -0.4f, 0, 0);
                         left_moved += step;
                         if (ghost) { StateChange(); }
@@ -142,6 +148,7 @@ public class Spin_Control_Zpiece : MonoBehaviour
             // Clockwise spin
             if (Input.GetKeyDown(clockhotkey) & !(Input.GetKeyDown(anticlockhotkey)) & FindObjectOfType<Master_Control>().RotationChoice("Z", state.position.y, state.position.x, (int)state.eulerAngles.z, -90, hold, moving_already) != null)
             {
+                soundFX[5].Play();
                 float[] deltapos = FindObjectOfType<Master_Control>().RotationChoice("Z", state.position.y, state.position.x, (int)state.eulerAngles.z, -90, hold, moving_already);
                 state.eulerAngles = new Vector3(0, 0, (state.eulerAngles.z - 90) % 360);
                 state.position += new Vector3(deltapos[1], deltapos[0], 0);
@@ -150,6 +157,7 @@ public class Spin_Control_Zpiece : MonoBehaviour
             // Anticlockwise spin
             if (Input.GetKeyDown(anticlockhotkey) & !(Input.GetKeyDown(clockhotkey)) & FindObjectOfType<Master_Control>().RotationChoice("Z", state.position.y, state.position.x, (int)state.eulerAngles.z, 90, hold, moving_already) != null)
             {
+                soundFX[5].Play();
                 float[] deltapos = FindObjectOfType<Master_Control>().RotationChoice("Z", state.position.y, state.position.x, (int)state.eulerAngles.z, 90, hold, moving_already);
                 state.eulerAngles = new Vector3(0, 0, (state.eulerAngles.z + 90) % 360);
                 state.position += new Vector3(deltapos[1], deltapos[0], 0);
@@ -293,6 +301,7 @@ public class Spin_Control_Zpiece : MonoBehaviour
         fast = PlayerPrefs.GetFloat("VertiMulti", 8f);
         time_til_stay = PlayerPrefs.GetFloat("Freeze", 0.5f);
         freeze_timer = PlayerPrefs.GetFloat("ABSFreeze", 2f);
+        if (PlayerPrefs.GetInt("Ghost", 1) == 1) { ghost = true; } else { ghost = false; }
     }
 
     void StateChange()

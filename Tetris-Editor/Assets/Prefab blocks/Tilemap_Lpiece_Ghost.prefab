@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8096471541867182420}
   - component: {fileID: 8096471541867182419}
   - component: {fileID: -6406276116487146869}
+  - component: {fileID: -8312098496122146907}
   m_Layer: 0
   m_Name: Tilemap_Lpiece_Ghost
   m_TagString: Untagged
@@ -195,3 +196,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: {fileID: 8096471541867182418}
+  x: 0
+  y: 0
+  type: 
+  rot: 0
+--- !u!114 &-8312098496122146907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8096471541867182417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0153475c368e82e41ae2b5974c6c9889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: L

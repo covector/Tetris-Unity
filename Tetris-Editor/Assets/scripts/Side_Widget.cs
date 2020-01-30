@@ -4,13 +4,14 @@ using UnityEngine.Tilemaps;
 public class Side_Widget : MonoBehaviour
 {
     #region variables and constants
-    public Tile Otile;
-    public Tile Itile;
-    public Tile Ttile;
-    public Tile Ltile;
-    public Tile Jtile;
-    public Tile Stile;
-    public Tile Ztile;
+    Skin skinType;
+    Tile Otile;
+    Tile Itile;
+    Tile Ttile;
+    Tile Ltile;
+    Tile Jtile;
+    Tile Stile;
+    Tile Ztile;
     float chance;
 
     string Held = "None";
@@ -21,6 +22,15 @@ public class Side_Widget : MonoBehaviour
 
     void Start()
     {
+        skinType = FindObjectOfType<Master_Control>().skinArray[PlayerPrefs.GetInt("SkinIndex", 0)];
+        Otile = skinType.oBlock;
+        Itile = skinType.iBlock;
+        Ttile = skinType.tBlock;
+        Ltile = skinType.lBlock;
+        Jtile = skinType.jBlock;
+        Ztile = skinType.zBlock;
+        Stile = skinType.sBlock;
+
         chance = FindObjectOfType<Master_Control>().smaller_chance;
         Next1 = Random.Range(1, 8);
         Next2 = LessChanceRandom(Next1);

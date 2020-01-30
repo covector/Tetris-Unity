@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8096471541867182420}
   - component: {fileID: 8096471541867182419}
   - component: {fileID: 8096471541867182421}
+  - component: {fileID: -4266128218303418942}
   m_Layer: 0
   m_Name: Tilemap_Lpiece
   m_TagString: Untagged
@@ -196,3 +197,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 8096471541867182418}
   spren: {fileID: 8096471541867182420}
+--- !u!114 &-4266128218303418942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8096471541867182417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0153475c368e82e41ae2b5974c6c9889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: L

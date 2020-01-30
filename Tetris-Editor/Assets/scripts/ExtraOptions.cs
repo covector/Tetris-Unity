@@ -26,7 +26,7 @@ public class ExtraOptions : MonoBehaviour
     {
         inertia.value = PlayerPrefs.GetFloat("Inertia", 0.1f);
         horispeed.value = PlayerPrefs.GetFloat("HoriSpeed", 16f);
-        vertispeed.value = PlayerPrefs.GetFloat("VertiSpeed", 2f);
+        vertispeed.value = PlayerPrefs.GetFloat("VertiSpeed", 1.5f);
         vertispeedmulti.value = PlayerPrefs.GetFloat("VertiMulti", 8f);
         freeze.value = PlayerPrefs.GetFloat("Freeze", 0.5f);
         absfreeze.value = PlayerPrefs.GetFloat("ABSFreeze", 2f);
@@ -35,7 +35,7 @@ public class ExtraOptions : MonoBehaviour
 
         iner.text = PlayerPrefs.GetFloat("Inertia", 0.1f).ToString();
         hori.text = PlayerPrefs.GetFloat("HoriSpeed", 16f).ToString();
-        verts.text = PlayerPrefs.GetFloat("VertiSpeed", 2f).ToString();
+        verts.text = PlayerPrefs.GetFloat("VertiSpeed", 1.5f).ToString();
         vertm.text = PlayerPrefs.GetFloat("VertiMulti", 8f).ToString();
         free.text = PlayerPrefs.GetFloat("Freeze", 0.5f).ToString();
         abs.text = PlayerPrefs.GetFloat("ABSFreeze", 2f).ToString();
@@ -152,7 +152,7 @@ public class ExtraOptions : MonoBehaviour
     {
         PlayerPrefs.SetFloat("Inertia", 0.1f);
         PlayerPrefs.SetFloat("HoriSpeed", 16f);
-        PlayerPrefs.SetFloat("VertiSpeed", 2f);
+        PlayerPrefs.SetFloat("VertiSpeed", 1.5f);
         PlayerPrefs.SetFloat("VertiMulti", 8f);
         PlayerPrefs.SetFloat("Freeze", 0.5f);
         PlayerPrefs.SetFloat("ABSFreeze", 2f);

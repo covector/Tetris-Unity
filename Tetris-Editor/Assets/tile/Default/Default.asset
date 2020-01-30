@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b8338fb6266da41a2257c149d19e94, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  name: Default
+  differentOrientation: 1
+  differentColor: 1
+  oSingle: {fileID: 11400000, guid: 3184b5f416056d74aa01527e753ad493, type: 2}
+  oBlock: {fileID: 11400000, guid: c34b511ed01de5344931ee1318f55932, type: 2}
+  tSingle0: {fileID: 11400000, guid: 106e760eeee8f7246994a371ecb9d82e, type: 2}
+  tSingle90: {fileID: 11400000, guid: 8a80d749a96e7494097d8949122fa22a, type: 2}
+  tSingle180: {fileID: 11400000, guid: 38841a949e968094f97b60b6499a13ce, type: 2}
+  tSingle270: {fileID: 11400000, guid: c9648ed6c1a6a5548a53250826eafb9f, type: 2}
+  tBlock: {fileID: 11400000, guid: 799e537700c6cec428a56acfbc56fcae, type: 2}
+  iSingle0: {fileID: 11400000, guid: bec462bfc2773da4d88fb928e3d15f71, type: 2}
+  iSingle90: {fileID: 11400000, guid: 583854738569a27469cb90060ce0a867, type: 2}
+  iSingle180: {fileID: 11400000, guid: 5fce21c107bacf84fa56f4bfeeee5a85, type: 2}
+  iSingle270: {fileID: 11400000, guid: 7696555081c8f9341ac062ce37a2dc8b, type: 2}
+  iBlock: {fileID: 11400000, guid: 66f4ccbbaab1ef14f83799835e1ce5e4, type: 2}
+  lSingle0: {fileID: 11400000, guid: 690ff44f8abab0a45baffbe3aba87ea0, type: 2}
+  lSingle90: {fileID: 11400000, guid: 30fbf4ca3fc311648a5efcb68f15a3f7, type: 2}
+  lSingle180: {fileID: 11400000, guid: 2a34624aac697ff4bad7a93e90021ad7, type: 2}
+  lSingle270: {fileID: 11400000, guid: 7e346a6620f943b4a83a402b7e1615d2, type: 2}
+  lBlock: {fileID: 11400000, guid: 065c3a87a92180844af9ceb63ac75389, type: 2}
+  jSingle0: {fileID: 11400000, guid: aa99d13386deb4346a9d502035883661, type: 2}
+  jSingle90: {fileID: 11400000, guid: 16448a155f15ec140b10cb22311cb3dc, type: 2}
+  jSingle180: {fileID: 11400000, guid: 07843f98540441e4e903729c1539c73a, type: 2}
+  jSingle270: {fileID: 11400000, guid: 3983558a350d812429a68677f5980d40, type: 2}
+  jBlock: {fileID: 11400000, guid: 66c844df04ab4744c9e4497ce4ed04a3, type: 2}
+  sSingle0: {fileID: 11400000, guid: 9d8d5e1f80481c54fb92b80e7bcbbf45, type: 2}
+  sSingle90: {fileID: 11400000, guid: c3c2e519cd2b7324d8e9ba6f92a81834, type: 2}
+  sSingle180: {fileID: 11400000, guid: c8931de478dbe874186a0e21347215b9, type: 2}
+  sSingle270: {fileID: 11400000, guid: 42d6b5170c3819e498383fb820096fef, type: 2}
+  sBlock: {fileID: 11400000, guid: 10d2f1efa0631fa40a9983d26a8b428b, type: 2}
+  zSingle0: {fileID: 11400000, guid: b7560418e6e38574bb3ff00fc3a8bde5, type: 2}
+  zSingle90: {fileID: 11400000, guid: 6cba63e70d124af46b9c3abbd6496dfb, type: 2}
+  zSingle180: {fileID: 11400000, guid: 6f19de9800bb1f24d98a3dee37ebd668, type: 2}
+  zSingle270: {fileID: 11400000, guid: 000338d223e52eb428ae0150d0c8656d, type: 2}
+  zBlock: {fileID: 11400000, guid: 3453da8219f69184093a216dd17c8503, type: 2}
+  NoBlock: {fileID: 11400000, guid: c3868852e77af984397f36ac34055031, type: 2}
+  TopLeft: {fileID: 11400000, guid: 8d6af99a12602d44d9ab442665a5de1c, type: 2}
+  Top: {fileID: 11400000, guid: f1f2e63174f647945aa8537d1e4f67d6, type: 2}
+  TopRight: {fileID: 11400000, guid: 28cac4aaad1d8164fbc5bfe0afd781f2, type: 2}
+  Left: {fileID: 11400000, guid: 78890cafd1253a54790803fce113cbb7, type: 2}
+  Right: {fileID: 11400000, guid: 6bc91a3529c326f4191f31ed6f8d808b, type: 2}
+  BottomLeft: {fileID: 11400000, guid: 5d8a8fd142da0644f84529c5f1229330, type: 2}
+  Bottom: {fileID: 11400000, guid: 267f9a8441145b6459b0776c4280111b, type: 2}
+  BottomRight: {fileID: 11400000, guid: c2fe0429501b1ae46b07f797b933791e, type: 2}
+  one: {fileID: 11400000, guid: 7fc1403f409f65f499ff850f15d971e2, type: 2}
+  two: {fileID: 11400000, guid: c273e6ac7f8df7e47abef05eb8c4220f, type: 2}
+  three: {fileID: 11400000, guid: 5dfa64cd5205ba944978c6ad87562f49, type: 2}
+  four: {fileID: 11400000, guid: 399c8cb3997d6fe4e9ce2af08401e48d, type: 2}
+  five: {fileID: 11400000, guid: 739cf1fa9d93965488390a0d2ee5ac29, type: 2}
+  six: {fileID: 11400000, guid: e8974705a09c9864782abe273ef576b5, type: 2}
+  seven: {fileID: 11400000, guid: 30a5ab27e5b304742bb60a174c6612f6, type: 2}
+  eight: {fileID: 11400000, guid: 553991cc805d89041a69a750e619c915, type: 2}
+  nine: {fileID: 11400000, guid: 3b74e278d452d3a49b6d3796f0262d35, type: 2}
+  pause: {fileID: 21300000, guid: 6ea8b17ae14877a429391cde9dd2a70b, type: 3}
+  Background: {fileID: 21300000, guid: 221017b7984148543a0c5a6275576464, type: 3}
+  Next: {fileID: 21300000, guid: 38eca4480c84b3949b0778aa9ead1148, type: 3}
+  Hold: {fileID: 21300000, guid: c95f28a7200cc2243aaebd67e99a6ff7, type: 3}
+  LandParticles: {fileID: 4080571720336807787, guid: 014501b6bbb79484bb5e2c0b3b624211,
+    type: 3}

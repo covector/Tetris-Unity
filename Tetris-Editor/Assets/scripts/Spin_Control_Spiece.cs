@@ -296,7 +296,7 @@ public class Spin_Control_Spiece : MonoBehaviour
         holdhotkey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Hold", "C"));
         inertia = PlayerPrefs.GetFloat("Inertia", 0.1f);
         move_per_sec = PlayerPrefs.GetFloat("HoriSpeed", 16f);
-        speed = PlayerPrefs.GetFloat("VertiSpeed", 2f);
+        speed = PlayerPrefs.GetFloat("VertiSpeed", 1.5f);
         fast = PlayerPrefs.GetFloat("VertiMulti", 8f);
         time_til_stay = PlayerPrefs.GetFloat("Freeze", 0.5f);
         freeze_timer = PlayerPrefs.GetFloat("ABSFreeze", 2f);

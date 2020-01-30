@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class Master_Control : MonoBehaviour
 {
@@ -25,9 +26,13 @@ public class Master_Control : MonoBehaviour
     public bool escapable = false;
     public bool escapception = false;
     bool ghost;
-    public GameObject landParticle;
+    GameObject landParticle;
     AudioSource[] soundFX;
     public Skin[] skinArray;
+    public Image pause;
+    public SpriteRenderer background;
+    public SpriteRenderer hold;
+    public SpriteRenderer next;
 
     public Score finalscore;
     public GameObject fadeback2op;
@@ -65,7 +70,12 @@ public class Master_Control : MonoBehaviour
         countdown.SetActive(true);
         soundFX = FindObjectOfType<AudioManage>().audioSources;
         FindObjectOfType<AudioManage>().ChangeVolume(PlayerPrefs.GetInt("SoundVolume", 1) / 100f);
-
+        Skin currSkin = skinArray[PlayerPrefs.GetInt("SkinIndex", 0)];
+        pause.sprite = currSkin.pause;
+        background.sprite = currSkin.Background;
+        hold.sprite = currSkin.Hold;
+        next.sprite = currSkin.Next;
+        landParticle = currSkin.LandParticles;
     }
 
     private void Update()

@@ -1,0 +1,239 @@
+body{
+    margin: 0px;
+    background-color: rgb(230, 230, 230);
+    font-family: Roboto, Arial, sans-serif;
+}
+div.topPicture{
+    background-image: url("images/WallPaper.png");
+    background-repeat: no-repeat;
+    background-position: 50% 10%;
+    background-size: 1500px;
+    height: 500px;
+}
+@media screen and (min-width: 1400px){
+    div.topPicture{
+        background-size: 2000px;
+    }
+}
+@media screen and (max-width: 1000px){
+    div.topPicture{
+        background-size: 1000px;
+    }
+}
+div.topBar{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-bottom: 10px;
+    margin: inherit;
+    font-family: teko, sans-serif;
+    box-shadow: 0px 0px 5px black;
+}
+div.topBar h1{
+    margin: inherit;
+    padding: 0px;
+    font-size: 150px;
+    height: 160px;
+    text-shadow: 0px 0px 10px white;
+}
+div.topBar p{
+    margin: inherit;
+    padding: 0px;
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-family: Roboto, Arial, sans-serif;
+}
+p.quote{
+    font-size: 20px;
+    text-indent: 50px;
+    padding: 50px 15% 20px 15%;
+}
+p.author{
+    position: relative;
+    text-align: right;
+    padding-right: 20%;
+    padding-bottom: 120px;
+}
+div.download{
+    background-color: black;
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-family: Roboto, Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 0px 5px black;
+}
+div.download div.icon{
+    padding-left: 10px;
+    margin: auto;
+    text-align: left;
+}
+div.download div.icon img{
+    height: 120px
+}
+div.download div.icon p{
+    position: relative;
+    bottom: 20px;
+    text-indent: 20px;
+    border: 0px;
+}
+div.download a{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: white;
+    margin: auto;
+    height: 100px;
+    width: 300px;
+    position: relative;
+    bottom: 20px;
+
+    font-size: 50px;
+    font-family: teko, sans-serif;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+div.download a span{
+    position: relative;
+    top: 16px;
+}
+div.download a:hover{
+    background-color: rgb(200, 200, 200);
+}
+div.download div.requirements{
+    margin: auto;
+    position: relative;
+    bottom: 20px;
+}
+@media screen and (min-width: 1400px){
+    div.download a{
+        width: 800px;
+    }
+}
+@media screen and (max-width: 1000px){
+    div.download a{
+        width: 150px;
+        font-size: 25px;
+        
+    }
+    div.download a span{
+        top: 34px;
+    }
+    div.download div.icon p{
+        text-indent: 0px;
+}
+}
+@media screen and (max-width: 600px){
+    div.download a{
+        font-size: 20px;
+        right: 10px;
+    }
+    div.download a span{
+        top: 38px;
+    }
+    div.download div.requirements{
+        font-size: 15px;
+        padding-left: 15px;
+    }
+    div.download div.icon img{
+        height: 80px
+    }
+    div.download div.icon p{
+            font-size: 15px;
+            text-indent: 0px;
+    }
+}
+h1{
+    font-size: 60px;
+    padding-left: 20px;
+    margin-top: 80px;
+}
+div.steps{
+    text-align: center;
+}
+div.steps div{
+    padding-bottom: 45px;
+    padding-top: 45px;
+}
+div.steps p{
+    display: inline-block;
+    font-size: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: relative;
+    bottom: 200px;
+}
+div.steps img{
+    object-fit: cover;
+    object-position: 50% 50%;
+    display: inline-block;
+    height: 400px;
+    width: 600px;
+    border-radius: 10px 10px 10px;
+    border-style: solid;
+    box-shadow: 0px 0px 5px black;
+}
+div.step1{
+    background-color:rgb(210, 210, 210);
+}
+div.step3{
+    background-color:rgb(210, 210, 210);
+}
+div.step5{
+    background-color:rgb(210, 210, 210);
+}
+p.done{
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+    padding-bottom: 90px;
+    padding-top: 90px;
+    background-color: rgb(210, 210, 210);
+    margin-bottom: 0px;
+}
+div.steps .pattern{
+    display: none;
+}
+@media screen and (max-width: 1000px){
+    h1{
+        font-size: 40px;
+        padding-left: 20px;
+    }
+    p.done{
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 1400px){
+    div.steps div{
+        padding-bottom: 45px;
+        padding-top: 45px;
+    }
+    div.steps p{
+        display: block;
+        bottom: 0;
+    }
+    div.steps .alternate{
+        display: none;
+    }
+    div.steps .pattern{
+        display: block;
+    }
+}
+@media screen and (max-width: 700px){
+    div.steps img{
+        height: 220px;
+        width: 330px;
+    }
+    p.done{
+        font-size: 30px;
+    }
+}
+div.foot{
+    background-color: black;
+    color: white;
+    text-indent: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

@@ -10,6 +10,14 @@ div.topPicture{
     background-size: 1500px;
     height: 500px;
 }
+div.topPicture img{
+    height: 150px;
+    padding-left: 10px;
+    padding-top: 0px;
+    margin-top: 0px;
+    position: -webkit-sticky;
+
+}
 @media screen and (min-width: 1400px){
     div.topPicture{
         background-size: 2000px;

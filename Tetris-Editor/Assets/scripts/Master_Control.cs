@@ -30,7 +30,7 @@ public class Master_Control : MonoBehaviour
     AudioSource[] soundFX;
     public Skin[] skinArray;
     public Image pause;
-    public SpriteRenderer background;
+    public Image background;
     public SpriteRenderer hold;
     public SpriteRenderer next;
 
@@ -88,6 +88,7 @@ public class Master_Control : MonoBehaviour
         {
             PauseGame();
         }
+        if (paused & Input.GetKey(KeyCode.R) & Input.GetKey(KeyCode.LeftShift) & Input.GetKey(KeyCode.LeftAlt) & Input.GetKey(KeyCode.LeftControl)) { SceneManager.LoadScene(1); }
     }
 
     IEnumerator musicfadein()

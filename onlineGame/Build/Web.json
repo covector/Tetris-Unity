@@ -1,0 +1,17 @@
+{
+"companyName": "Pedo",
+"productName": "Tetris",
+"productVersion": "1.12",
+"dataUrl": "Web.data.unityweb",
+"wasmCodeUrl": "Web.wasm.code.unityweb",
+"wasmFrameworkUrl": "Web.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"backgroundUrl": "Web.jpg",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#FFFFFF",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.6f1"
+}

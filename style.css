@@ -188,7 +188,7 @@ div.steps img{
     display: inline-block;
     height: 400px;
     width: 600px;
-    border-radius: 10px 10px 10px;
+    border-radius: 10px;
     border-style: solid;
     box-shadow: 0px 0px 5px black;
 }

@@ -154,6 +154,14 @@ div.download div.requirements{
             padding-right: 40px;
     }
 }
+@media screen and (max-width: 500px){
+    div.download a{
+        font-size: 15px;
+    }
+    div.download a span{
+        top: 40px;
+    }
+}
 h1{
     font-size: 60px;
     padding-left: 20px;

@@ -125,7 +125,7 @@ div.download div.requirements{
         text-indent: 0px;
 }
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 700px){
     div.download a{
         font-size: 20px;
         right: 10px;
@@ -143,6 +143,7 @@ div.download div.requirements{
     div.download div.icon p{
             font-size: 15px;
             text-indent: 0px;
+            padding-right: 40px;
     }
 }
 h1{

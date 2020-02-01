@@ -16,6 +16,7 @@ rate = 0.05;
 }
 
 function CloseSide(){
+    clearInterval(Closing);
     clearInterval(Opening);
     var i = parseInt(side_bar.style.left.replace("px", ""))
     Closing = setInterval(
@@ -30,6 +31,7 @@ function CloseSide(){
 
 function OpenSide(){
     clearInterval(Closing);
+    clearInterval(Opening);
     var i = -1 * weeedth;
     dark.style.visibility = "visible";
     Opening = setInterval(

@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+}
 body{
     margin: 0px;
     background-color: rgb(230, 230, 230);
@@ -10,13 +13,39 @@ div.topPicture{
     background-size: 1500px;
     height: 500px;
 }
-div.topPicture img{
+div.topPicture img.icon{
+    z-index: 2;
     height: 150px;
-    padding-left: 10px;
     padding-top: 0px;
     margin-top: 0px;
-    position: -webkit-sticky;
-
+    position: fixed;
+    left: 50px;
+    top: -30px;
+}
+div.topPicture img.button{
+    z-index: 3;
+    height: 50px;
+    margin-left: 10px;
+    padding-top: 0px;
+    margin-top: 0px;
+    border-radius: 8px;
+    position: fixed;
+    top: 20px;
+    left: 5px;
+    box-shadow: 0px 0px 5px black;
+}
+div.topPicture img.topbar{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100px;
+}
+div.topPicture img.button:hover{
+    cursor: pointer;
+    filter: brightness(150%);
+}
+div.topPicture img.button:active{
+    filter: brightness(50%);
 }
 @media screen and (min-width: 1400px){
     div.topPicture{
@@ -253,4 +282,63 @@ div.foot{
     text-indent: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+div.Sidebar{
+    position: fixed;
+    background-color: rgb(20, 20 ,20);
+    height: 100%;
+    width: 350px;
+    z-index: 4;
+    color: white;
+    font-size: 30px;
+    left: -350px;
+}
+div.Sidebar p{
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+div.Sidebar p.alternate{
+    background-color: rgb(30, 30, 30)
+}
+div.Sidebar p:hover{
+    cursor: pointer;
+    background-color: rgb(100, 100, 100);
+}
+div.Sidebar span{
+    color: red;
+    font-size: 12px;
+}
+div.Sidebar img{
+    display: inline-block;
+}
+div.Sidebar img.icon{
+    height: 120px;
+    width: 240px;
+    object-fit: cover;
+    position: relative;
+    right: 20px;
+}
+div.Sidebar img.button{
+    height: 60px;
+    margin-left: 15px;
+    position: relative;
+    bottom: 28px;
+    border-radius: 8px;
+}
+div.Sidebar img.button:hover{
+    cursor: pointer;
+    filter: brightness(150%);
+}
+div.Sidebar img.button:active{
+    filter: brightness(50%);
+}
+img.dark{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
 }

@@ -8,12 +8,24 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Teko:700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
+    <script src="sidebar.js"></script>
     <title>Tetris</title>
 </head>
-<body>
+<body id="top">
 
+    <div class="Sidebar" id="side_bar">
+        <img class="button" onclick="CloseSide()" src="images/sidebarButton.png" alt="Close side bar" />
+        <img class="icon" src="images/head_icon.png" alt="Tetris icon" />
+        <p class="alternate" onclick="Go2Top()">Home</p>
+        <p onclick="Go2Download()">Download</p>
+        <p class="alternate" onclick="Go2Steps()">Guide</p>
+        <p onclick="OnlineVer()">Online Version <span>EXTREMELY BUGGY</span></p>
+    </div>
+    <img class="dark" id="black" src="images/darken.png" alt="darken the screen" />
     <div class="topPicture">
-        <img src="images/head_icon.png" alt="Tetris icon" />
+        <img class="button" onclick="OpenSide()" src="images/sidebarButton.png" alt="Open SideBar" />
+        <img class="icon" src="images/head_icon.png" alt="Tetris icon" />
+        <img class="topbar" src="images/topbar.png" alt="Top bar" />
     </div>
     <div class="topBar">
         <h1>Tetris</h1>
@@ -26,7 +38,7 @@
         &#8213 Pedo
     </span>
 
-    <div class="download">
+    <div class="download" id="download">
         <div class="icon">
             <img src="images/Window.png" alt="Window Icon"/>
             <p>DOWNLOAD FOR WINDOWS 64-bit</p>
@@ -45,7 +57,7 @@
         </div>
     </div>
 
-    <h1>How to download</h1>
+    <h1 id="steps">How to download</h1>
 
     <div class="steps">
         
